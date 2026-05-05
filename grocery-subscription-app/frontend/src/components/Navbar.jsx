@@ -28,16 +28,17 @@ const Navbar = () => {
           )}
           
           {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-              <Link to="/profile" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <Link to="/profile" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', padding: '0.25rem', borderRadius: '50px', transition: 'background 0.3s' }} onMouseOver={(e) => e.currentTarget.style.background = '#f1f5f9'} onMouseOut={(e) => e.currentTarget.style.background = 'transparent'}>
                 <img 
                   src={user.profilePicture || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random`} 
                   alt="Profile" 
-                  style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--accent-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                  style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover', border: '2px solid white', boxShadow: '0 2px 6px rgba(0,0,0,0.1)' }}
                 />
-                <span className="nav-link" style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{user.name}</span>
+                <span style={{ fontWeight: '600', color: 'var(--text-primary)', paddingRight: '0.5rem' }}>{user.name}</span>
               </Link>
-              <button onClick={handleLogout} className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem', borderRadius: '8px' }}>Logout</button>
+              <div style={{ width: '1px', height: '24px', background: '#e2e8f0' }}></div>
+              <button onClick={handleLogout} className="btn" style={{ padding: '0.5rem 1.25rem', fontSize: '0.95rem', borderRadius: '10px', background: 'transparent', color: 'var(--text-secondary)', border: '1px solid #e2e8f0', boxShadow: 'none' }} onMouseOver={(e) => { e.currentTarget.style.background = '#fef2f2'; e.currentTarget.style.color = '#dc2626'; e.currentTarget.style.borderColor = '#fecaca'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.borderColor = '#e2e8f0'; }}>Logout</button>
             </div>
           ) : (
             <>
