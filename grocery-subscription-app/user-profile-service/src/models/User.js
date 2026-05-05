@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true }, // Not hashing for simplicity as requested
   role: { type: String, enum: ['admin', 'customer'], default: 'customer' },
   address: { type: String },
-  phoneNumber: { type: String }
+  phoneNumber: { type: String },
+  profilePicture: { type: String, default: '' }
 });
 
 module.exports = mongoose.model('User', UserSchema);

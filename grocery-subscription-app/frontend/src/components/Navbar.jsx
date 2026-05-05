@@ -28,10 +28,17 @@ const Navbar = () => {
           )}
           
           {user ? (
-            <>
-              <span className="nav-link" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Hi, {user.name}</span>
-              <button onClick={handleLogout} className="btn" style={{ padding: '0.25rem 0.75rem', fontSize: '0.9rem', marginLeft: '0.5rem' }}>Logout</button>
-            </>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+              <Link to="/profile" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+                <img 
+                  src={user.profilePicture || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random`} 
+                  alt="Profile" 
+                  style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--accent-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                />
+                <span className="nav-link" style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{user.name}</span>
+              </Link>
+              <button onClick={handleLogout} className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem', borderRadius: '8px' }}>Logout</button>
+            </div>
           ) : (
             <>
               <Link to="/login" className={`nav-link ${location.pathname === '/login' ? 'active' : ''}`}>Login</Link>
