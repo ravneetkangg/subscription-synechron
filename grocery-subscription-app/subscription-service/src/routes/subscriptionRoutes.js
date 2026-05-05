@@ -2,6 +2,16 @@ const express = require('express');
 const Subscription = require('../models/Subscription');
 const router = express.Router();
 
+// Get all subscriptions (for admin)
+router.get('/all', async (req, res) => {
+  try {
+    const subscriptions = await Subscription.find().populate('productId');
+    res.json(subscriptions);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Get user subscriptions
 router.get('/:userId', async (req, res) => {
   try {

@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Using a sample MongoDB Atlas URI (Dummy/Public sample format)
-const MONGO_URI = '';
+const MONGO_URI = 'mongodb+srv://ravneetkang2003:Qub96c6xBOb9nkak@cluster0.tdraycq.mongodb.net/grocery-users';
 
 app.use(cors());
 app.use(express.json());

@@ -18,6 +18,16 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Get all users (for admin)
+router.get('/all', async (req, res) => {
+  try {
+    const users = await User.find().select('-password');
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Mock login
 router.post('/login', async (req, res) => {
   try {

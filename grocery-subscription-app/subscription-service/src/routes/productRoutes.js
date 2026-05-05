@@ -12,6 +12,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Add new product (Admin utility)
+router.post('/', async (req, res) => {
+  try {
+    const { name, description, price, imageUrl } = req.body;
+    const product = new Product({ name, description, price, imageUrl });
+    await product.save();
+    res.status(201).json({ message: 'Product added successfully', product });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Seed mock products (Admin utility)
 router.post('/seed', async (req, res) => {
   try {
