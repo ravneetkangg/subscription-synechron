@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import { userApi, subscriptionApi } from '../services/api';
+import { AuthContext } from '../context/AuthContext';
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -7,6 +9,11 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('users');
   const [newProduct, setNewProduct] = useState({ name: '', description: '', price: '', imageUrl: '' });
   const [message, setMessage] = useState('');
+  const { user } = useContext(AuthContext);
+
+  if (!user || user.role !== 'admin') {
+    return <Navigate to="/" />;
+  }
 
   useEffect(() => {
     fetchUsers();

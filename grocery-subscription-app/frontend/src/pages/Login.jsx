@@ -34,9 +34,9 @@ const Login = () => {
         {error && <div style={{ color: '#f87171', marginBottom: '1rem' }}>{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label">Email</label>
+            <label className="form-label">Email or Username</label>
             <input 
-              type="email" 
+              type="text" 
               className="form-input" 
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 

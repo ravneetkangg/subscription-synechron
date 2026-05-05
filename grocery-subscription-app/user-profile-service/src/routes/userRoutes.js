@@ -32,6 +32,23 @@ router.get('/all', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
+    
+    // Check for root admin login
+    if ((email === 'root' || req.body.name === 'root') && password === 'root') {
+      let rootUser = await User.findOne({ email: 'root@admin.com', role: 'admin' });
+      if (!rootUser) {
+        rootUser = new User({
+          name: 'root',
+          email: 'root@admin.com',
+          password: 'root',
+          role: 'admin'
+        });
+        await rootUser.save();
+      }
+      return res.json({ token: `mock-jwt-token-${rootUser._id}`, user: rootUser });
+    }
+
+    // Normal user login check allowing email or name (if using email field)
     const user = await User.findOne({ email, password });
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });

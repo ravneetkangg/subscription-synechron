@@ -15,11 +15,17 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="navbar-brand">FreshBox</Link>
+        <Link to="/" className="navbar-brand">Subscription Box Service</Link>
         <div className="nav-links">
-          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Groceries</Link>
-          <Link to="/subscriptions" className={`nav-link ${location.pathname === '/subscriptions' ? 'active' : ''}`}>My Subscriptions</Link>
-          <Link to="/admin" className={`nav-link ${location.pathname === '/admin' ? 'active' : ''}`}>Admin Portal</Link>
+          {(!user || user.role !== 'admin') && (
+            <>
+              <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Groceries</Link>
+              <Link to="/subscriptions" className={`nav-link ${location.pathname === '/subscriptions' ? 'active' : ''}`}>My Subscriptions</Link>
+            </>
+          )}
+          {user && user.role === 'admin' && (
+            <Link to="/admin" className={`nav-link ${location.pathname === '/admin' ? 'active' : ''}`}>Admin Portal</Link>
+          )}
           
           {user ? (
             <>

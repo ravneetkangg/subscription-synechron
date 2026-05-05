@@ -2,3 +2,6 @@ grocery-subscription-app/frontend/node_modules
 grocery-subscription-app/user-profile-service/node_modules
 grocery-subscription-app/payment-service/node_modules
 grocery-subscription-app/subscription-service/node_modules
+grocery-subscription-app/user-profile-service/index.js
+grocery-subscription-app/payment-service/index.js
+grocery-subscription-app/subscription-service/index.js
