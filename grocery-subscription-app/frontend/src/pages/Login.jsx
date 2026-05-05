@@ -62,7 +62,6 @@ const Login = () => {
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
                 required 
-                placeholder="root"
                 style={{ background: '#f8fafc' }}
               />
             </div>
@@ -74,7 +73,6 @@ const Login = () => {
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 required 
-                placeholder="••••••••"
                 style={{ background: '#f8fafc' }}
               />
             </div>

@@ -46,21 +46,20 @@ h3 { font-size: 1.5rem; }
 }
 
 .page-wrapper {
-  padding-top: 6rem;
+  padding-top: 2rem;
   padding-bottom: 4rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
 }
 
-/* Glassmorphism Navbar */
+/* Solid Sticky Navbar */
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
-  padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   z-index: 100;
   transition: all 0.3s ease;
 }
