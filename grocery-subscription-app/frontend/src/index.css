@@ -365,3 +365,43 @@ h3 { font-size: 1.5rem; }
   padding: 2.5rem;
   margin: 0 auto;
 }
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+.btn-warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.btn-warning:hover {
+  background: #f59e0b;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.table-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
